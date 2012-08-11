@@ -1,0 +1,21 @@
+{
+  "author": "Paul English <paul@onfrst.com> (http://nerdfront.com)",
+  "name": "svg-pie",
+  "description": "Turn any SVG path into a pie chart or progress meter.",
+  "version": "1.0.0",
+  "homepage": "http://frst.github.com/svg-pie/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:frst/svg-pie.git"
+  },
+  "main": "lib/svg-pie.js",
+  "scripts": {
+    "test": "cake test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

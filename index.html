@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="main">
+      <header>
+	<h1>new <span>SvgPie</span><span class="black">()</span></h1>
+      </header>
+    <article>
+      <section>
+	<div class="left">
+	  <svg id="loader"></svg>
+	</div>
+	<div class="right">
+	  <h2>Progress</h2>
+	  <p>
+	    Creating a simple animated loading graphic is easy. Try it out with your own settings below.
+	  </p>
+	  <ul>
+	    <li>
+	      <label>Path</label>
+	      <input type="text" placeholder="data path" />
+	    </li>
+	    <li>
+	      <label>Color</label>
+	      <input type="text" placeholder="color" />
+	    </li>
+	    <li>
+	      <label>Background</label>
+	      <input type="text" placeholder="background color" />
+	    </li>
+	  </ul>
+	  <code><pre>var loader_svg = document.getElementById('loader');
+var loader = new SvgPie({
+    path: "M15.502,7.504c-4.35,0-7.873,...z",
+    element: loader_svg,
+    type: 'progress',
+    color: '0A0',
+    background: '999'
+});
+
+// Continually cycle progress bar
+var progress = 0;
+var interval = setInterval(function() {
+    if (progress == 200) progress = 0;
+    else progress += 1;
+    loader.set('progress', progress);
+}, 100);</pre></code>
+	</div>
+	<div class="clear"></div>
+      </section>
+
+      <section>
+	<div class="left">
+	  <svg id="pie"></svg>
+	</div>
+	<div class="right">
+	  <h2>Pie Charts</h2>
+	  <p>
+	    If you'd like to create a simple pie chart, this is easily performed as well. Try it out with your own path.
+	  </p>
+	  <ul>
+	    <li>
+	      <label>Path</label>
+	      <input type="text" placeholder="data path" />
+	    </li>
+	    <li>
+	      <label>Color</label>
+	      <input type="text" placeholder="color" />
+	    </li>
+	    <li>
+	      <label>Background</label>
+	      <input type="text" placeholder="background color" />
+	    </li>
+	  </ul>
+	  <code><pre>var pie_canvas = document.getElementById('pie');
+var github_top_languages = [
+    {name: 'Javascript',percent: 20},
+    {name: 'Ruby', percent: 14},
+    {name: 'Python', percent: 9},
+    {name: 'Shell', percent: 8},
+    {name: 'Java', percent: 8},
+    {name: 'PHP', percent: 7},
+    {name: 'C', percent: 6},
+    {name: 'C++', percent: 4},
+    {name: 'Perl', percent: 4},
+    {name: 'Objective-C', percent: 3},
+    {name: 'Other', percent: 17}
+];
+
+var pie = new SvgPie({
+    path: github,
+    element: pie_canvas,
+    data: github_top_languages.map(function(d) { return d.percent; }),
+    color: '#0A0',
+    background: '#999'
+});</pre></code>
+
+	</div>
+	<div class="clear"></div>
+
+      </section>
+    </article>
+    <footer>
+      <a href="https://github.com/frst/svg-pie"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    </footer>
+    </div>
+
+    <script src="lib/svg-pie.js"></script>
+    <script src="example.js"></script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15463710-9']);
+      _gaq.push(['_setDomainName', 'frst.github.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>
