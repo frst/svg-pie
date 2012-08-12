@@ -9,6 +9,7 @@ window.onload = function() {
     var loader_canvas = document.getElementById('loader');
     var loader = new SvgPie({
 				path: sunburst,
+				id: 'loader',
 				element: loader_canvas,
 				type: 'progress',
 				color: '#009',
@@ -18,31 +19,32 @@ window.onload = function() {
     // Continually cycle progress bar
     var progress = 0;
     var interval = setInterval(function() {
-				   if (progress == 200) progress = 0;
+				   if (progress >= 100) progress = 0;
 				   else progress += 1;
 				   loader.set('progress', progress);
-			       }, 100);
+			       }, 25);
 
     var pie_canvas = document.getElementById('pie');
     var github_top_languages = [
-	{name: 'Javascript',percent: 20},
-	{name: 'Ruby', percent: 14},
-	{name: 'Python', percent: 9},
-	{name: 'Shell', percent: 8},
-	{name: 'Java', percent: 8},
-	{name: 'PHP', percent: 7},
-	{name: 'C', percent: 6},
-	{name: 'C++', percent: 4},
-	{name: 'Perl', percent: 4},
-	{name: 'Objective-C', percent: 3},
-	{name: 'Other', percent: 17}
+	{name: 'Javascript',percent: 20, color:"#00F" },
+	{name: 'Ruby', percent: 14, color:"#0F0" },
+	{name: 'Python', percent: 9, color:"#F00" },
+	{name: 'Shell', percent: 8, color:"#00F" },
+	{name: 'Java', percent: 8, color:"#0F0" },
+	{name: 'PHP', percent: 7, color:"#F00" },
+	{name: 'C', percent: 6, color:"#00F" },
+	{name: 'C++', percent: 4, color:"#0F0" },
+	{name: 'Perl', percent: 4, color:"#F00" },
+	{name: 'Objective-C', percent: 3, color:"#00F" },
+	{name: 'Other', percent: 17, color:"#0F0" }
     ];
 
     var pie = new SvgPie({
 			     path: github,
+			     id: 'pie',
 			     element: pie_canvas,
 			     data: github_top_languages.map(function(d) { return d.percent; }),
-			     color: '#009',
+			     colors: github_top_languages.map(function(d) {return d.color; }),
 			     background: '#999'
 			 });
 
